@@ -43,8 +43,8 @@ export default function SignupPage() {
   return (
     <div className="max-w-sm mx-auto mt-10">
       <div className="card p-8">
-        <h1 className="text-2xl font-extrabold tracking-tight mb-1">Create account</h1>
-        <p className="text-sm text-gray-500 mb-6">Start earning from day one.</p>
+        <h1 className="text-2xl font-black tracking-tight mb-1">Create account</h1>
+        <p className="text-sm text-upm-muted mb-6">Start earning from day one.</p>
         <form onSubmit={onSubmit} className="space-y-4">
           <input required placeholder="Full name" value={fullName}
             onChange={(e) => setFullName(e.target.value)} className="input" />
@@ -53,21 +53,21 @@ export default function SignupPage() {
           <input type="password" required minLength={6} placeholder="Password (min 6 chars)"
             value={password} onChange={(e) => setPassword(e.target.value)} className="input" />
           <div>
-            <label className="text-sm font-medium text-gray-600">I am a…</label>
+            <label className="text-sm font-semibold text-upm-muted">I am a…</label>
             <select value={role} onChange={(e) => setRole(e.target.value as "student" | "educator")}
               className="input mt-1">
               <option value="student">Student (learn &amp; earn)</option>
               <option value="educator">Educator (also upload content)</option>
             </select>
           </div>
-          {error && <p className="text-sm text-red-600">{error}</p>}
-          {message && <p className="text-sm text-green-700">{message}</p>}
+          {error && <p className="text-sm text-red-400">{error}</p>}
+          {message && <p className="text-sm text-upm-gold">{message}</p>}
           <button disabled={loading} className="btn-primary w-full">
             {loading ? "Creating…" : "Sign up"}
           </button>
         </form>
-        <p className="mt-5 text-sm text-gray-500 text-center">
-          Already have an account? <Link href="/login" className="text-upm font-semibold hover:underline">Log in</Link>
+        <p className="mt-5 text-sm text-upm-muted text-center">
+          Already have an account? <Link href="/login" className="text-upm-gold font-bold hover:underline">Log in</Link>
         </p>
       </div>
     </div>
