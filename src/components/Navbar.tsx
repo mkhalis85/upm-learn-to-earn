@@ -27,10 +27,10 @@ export default function Navbar() {
   const link = (href: string, label: string) => (
     <Link
       href={href}
-      className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+      className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
         pathname === href
-          ? "bg-upm text-white shadow-sm"
-          : "text-gray-600 hover:text-upm hover:bg-upm-light"
+          ? "bg-upm-gold text-black shadow-md shadow-upm-gold/30"
+          : "text-upm-muted hover:text-upm-gold hover:bg-upm-gold/10"
       }`}
     >
       {label}
@@ -38,13 +38,13 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="sticky top-0 z-40 border-b border-gray-200/70 bg-white/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-40 border-b border-upm-border/70 bg-upm-deep/80 backdrop-blur-md">
       <div className="mx-auto max-w-5xl px-4 flex items-center justify-between h-14">
-        <Link href={email ? "/dashboard" : "/"} className="flex items-center gap-2 font-extrabold text-upm">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-upm to-emerald-600 text-white text-sm shadow-sm">
+        <Link href={email ? "/dashboard" : "/"} className="flex items-center gap-2.5 font-extrabold text-upm-text">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-upm-gold to-upm-goldDark text-black text-sm font-black shadow-md shadow-upm-gold/30">
             P
           </span>
-          Putra L2E
+          Putra <span className="text-upm-gold">L2E</span>
         </Link>
         <div className="flex items-center gap-1">
           {email ? (
@@ -55,7 +55,7 @@ export default function Navbar() {
               {link("/dashboard", "Dashboard")}
               <button
                 onClick={signOut}
-                className="ml-2 px-3 py-1.5 rounded-lg text-sm text-gray-400 transition-colors hover:text-red-600 hover:bg-red-50"
+                className="ml-2 px-3 py-1.5 rounded-lg text-sm text-upm-muted/70 transition-colors hover:text-upm-red hover:bg-upm-red/10"
               >
                 Sign out
               </button>
@@ -63,7 +63,7 @@ export default function Navbar() {
           ) : (
             <>
               {link("/login", "Log in")}
-              <Link href="/signup" className="ml-1 rounded-lg bg-upm px-4 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-upm-dark transition-colors">
+              <Link href="/signup" className="ml-1 rounded-lg bg-upm-gold px-4 py-1.5 text-sm font-bold text-black shadow-md shadow-upm-gold/30 hover:brightness-110 transition-all">
                 Sign up
               </Link>
             </>

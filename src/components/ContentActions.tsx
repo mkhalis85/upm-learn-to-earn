@@ -32,7 +32,7 @@ export default function ContentActions({
       setMsg("Nice! +10 points for completing this.");
       router.refresh();
     } else if (error.code === "23505") {
-      setCompleted(true); // already completed
+      setCompleted(true);
     } else {
       setMsg(error.message);
     }
@@ -57,44 +57,47 @@ export default function ContentActions({
     <div className="mt-8 space-y-6">
       <div>
         {completed ? (
-          <span className="inline-flex items-center gap-2 rounded-lg bg-green-100 px-4 py-2 text-green-800 font-medium">
+          <span className="inline-flex items-center gap-2 rounded-xl border border-upm-gold/50 bg-upm-gold/10 px-5 py-2.5 font-bold text-upm-gold">
             ✓ Completed
           </span>
         ) : (
-          <button onClick={markComplete} disabled={busy}
-            className="rounded-lg bg-upm px-6 py-2 text-white font-medium hover:bg-upm-dark disabled:opacity-50">
+          <button onClick={markComplete} disabled={busy} className="btn-primary">
             {busy ? "Saving…" : "Mark complete (+10)"}
           </button>
         )}
       </div>
 
       {quiz && (
-        <div className="rounded-xl border p-5 bg-white">
-          <h3 className="font-semibold mb-3">Quiz — {quiz.question}</h3>
+        <div className="card p-6">
+          <h3 className="font-bold mb-4 text-upm-text">
+            <span className="text-upm-gold">Quiz</span> — {quiz.question}
+          </h3>
           <div className="space-y-2">
             {quiz.options.map((opt, i) => (
               <label key={i}
-                className={`flex items-center gap-2 rounded-lg border px-3 py-2 cursor-pointer ${
-                  choice === i ? "border-upm bg-upm-light" : ""
+                className={`flex items-center gap-3 rounded-xl border px-4 py-3 cursor-pointer transition-colors ${
+                  choice === i
+                    ? "border-upm-gold bg-upm-gold/10 text-upm-text"
+                    : "border-upm-border hover:border-upm-gold/50 text-upm-muted hover:text-upm-text"
                 }`}>
-                <input type="radio" name="quiz" checked={choice === i} onChange={() => setChoice(i)} />
+                <input type="radio" name="quiz" checked={choice === i} onChange={() => setChoice(i)}
+                  className="accent-[#f5b301]" />
                 {opt}
               </label>
             ))}
           </div>
-          <button onClick={submitQuiz} disabled={busy || choice === null}
-            className="mt-4 rounded-lg bg-upm px-6 py-2 text-white font-medium hover:bg-upm-dark disabled:opacity-50">
+          <button onClick={submitQuiz} disabled={busy || choice === null} className="btn-primary mt-5">
             Submit answer
           </button>
           {result && (
-            <p className={`mt-3 font-medium ${result === "pass" ? "text-green-700" : "text-red-600"}`}>
+            <p className={`mt-4 font-bold ${result === "pass" ? "text-upm-gold" : "text-red-400"}`}>
               {result === "pass" ? "✓ Correct" : "✗ Incorrect"}
             </p>
           )}
         </div>
       )}
 
-      {msg && <p className="text-sm text-gray-600">{msg}</p>}
+      {msg && <p className="text-sm text-upm-muted">{msg}</p>}
     </div>
   );
 }
