@@ -16,8 +16,8 @@ export default async function LeaderboardPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-extrabold tracking-tight">Leaderboard</h1>
-      <p className="mt-1 text-sm text-gray-500">Top contributors and learners across campus.</p>
+      <h1 className="text-3xl font-black tracking-tight">Leaderboard</h1>
+      <p className="mt-1 text-sm text-upm-muted">Top contributors and learners across campus.</p>
 
       {rows.length >= 3 && (
         <div className="mt-8 grid grid-cols-3 gap-3 items-end">
@@ -26,11 +26,16 @@ export default async function LeaderboardPage() {
             const heights = ["pt-6", "pt-2", "pt-8"];
             const medals = ["🥈", "🥇", "🥉"];
             return (
-              <div key={r.id} className={`card card-hover p-5 text-center ${heights[idx]} ${place === 1 ? "border-upm/50 shadow-md" : ""}`}>
+              <div key={r.id}
+                className={`card card-hover p-5 text-center ${heights[idx]} ${
+                  place === 1 ? "border-upm-gold/70 shadow-upm-gold/20 bg-gradient-to-b from-upm-gold/10 to-transparent" : ""
+                }`}>
                 <div className="text-3xl">{medals[idx]}</div>
                 <div className="mt-2 font-bold truncate">{r.full_name ?? "—"}</div>
-                <div className="text-2xl font-extrabold text-upm mt-1">{r.points.toLocaleString()}</div>
-                <div className="text-xs text-gray-400">points</div>
+                <div className={`text-2xl font-black mt-1 ${place === 1 ? "text-upm-gold" : "text-upm-text"}`}>
+                  {r.points.toLocaleString()}
+                </div>
+                <div className="text-xs text-upm-muted">points</div>
               </div>
             );
           })}
@@ -39,7 +44,7 @@ export default async function LeaderboardPage() {
 
       <div className="card mt-8 overflow-hidden">
         <table className="w-full text-left">
-          <thead className="bg-gray-50/80 text-xs uppercase tracking-wide text-gray-500">
+          <thead className="bg-black/30 text-xs uppercase tracking-wider text-upm-muted">
             <tr>
               <th className="px-5 py-3 w-16">#</th>
               <th className="px-5 py-3">Name</th>
@@ -48,17 +53,20 @@ export default async function LeaderboardPage() {
               <th className="px-5 py-3 text-right">Points</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100">
+          <tbody className="divide-y divide-upm-border/50">
             {rows.map((r, i) => (
-              <tr key={r.id} className={`transition-colors hover:bg-gray-50/70 ${r.id === user?.id ? "bg-upm-light/60" : ""}`}>
-                <td className="px-5 py-3.5 font-semibold text-gray-500">{i + 1}</td>
-                <td className="px-5 py-3.5 font-medium">
+              <tr key={r.id}
+                className={`transition-colors hover:bg-upm-light/50 ${
+                  r.id === user?.id ? "bg-upm-gold/10" : ""
+                }`}>
+                <td className="px-5 py-3.5 font-bold text-upm-muted">{i + 1}</td>
+                <td className="px-5 py-3.5 font-semibold">
                   {r.full_name ?? "—"}
-                  {r.id === user?.id && <span className="chip ml-2 bg-upm text-white">you</span>}
+                  {r.id === user?.id && <span className="chip ml-2 bg-upm-gold text-black">you</span>}
                 </td>
-                <td className="px-5 py-3.5 capitalize text-sm text-gray-500">{r.role}</td>
+                <td className="px-5 py-3.5 capitalize text-sm text-upm-muted">{r.role}</td>
                 <td className="px-5 py-3.5 text-right text-sm">{r.streak} 🔥</td>
-                <td className="px-5 py-3.5 text-right font-bold text-upm">{r.points.toLocaleString()}</td>
+                <td className="px-5 py-3.5 text-right font-black text-upm-gold">{r.points.toLocaleString()}</td>
               </tr>
             ))}
           </tbody>
