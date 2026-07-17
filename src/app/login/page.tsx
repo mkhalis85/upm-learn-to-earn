@@ -27,20 +27,20 @@ function LoginForm() {
   return (
     <div className="max-w-sm mx-auto mt-10">
       <div className="card p-8">
-        <h1 className="text-2xl font-extrabold tracking-tight mb-1">Welcome back</h1>
-        <p className="text-sm text-gray-500 mb-6">Log in to keep your streak alive.</p>
+        <h1 className="text-2xl font-black tracking-tight mb-1">Welcome back</h1>
+        <p className="text-sm text-upm-muted mb-6">Log in to keep your streak alive.</p>
         <form onSubmit={onSubmit} className="space-y-4">
           <input type="email" required placeholder="Email" value={email}
             onChange={(e) => setEmail(e.target.value)} className="input" />
           <input type="password" required placeholder="Password" value={password}
             onChange={(e) => setPassword(e.target.value)} className="input" />
-          {error && <p className="text-sm text-red-600">{error}</p>}
+          {error && <p className="text-sm text-red-400">{error}</p>}
           <button disabled={loading} className="btn-primary w-full">
             {loading ? "Signing in…" : "Log in"}
           </button>
         </form>
-        <p className="mt-5 text-sm text-gray-500 text-center">
-          No account? <Link href="/signup" className="text-upm font-semibold hover:underline">Sign up</Link>
+        <p className="mt-5 text-sm text-upm-muted text-center">
+          No account? <Link href="/signup" className="text-upm-gold font-bold hover:underline">Sign up</Link>
         </p>
       </div>
     </div>
@@ -49,7 +49,7 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="max-w-sm mx-auto mt-10">Loading…</div>}>
+    <Suspense fallback={<div className="max-w-sm mx-auto mt-10 text-upm-muted">Loading…</div>}>
       <LoginForm />
     </Suspense>
   );
