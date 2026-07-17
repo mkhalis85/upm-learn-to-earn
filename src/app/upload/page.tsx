@@ -38,8 +38,8 @@ export default function UploadPage() {
   if (role && role === "student") {
     return (
       <div className="max-w-lg mx-auto mt-8 text-center">
-        <h1 className="text-2xl font-bold text-upm mb-2">Upload</h1>
-        <p className="text-gray-600">
+        <h1 className="text-2xl font-black mb-2">Upload</h1>
+        <p className="text-upm-muted">
           Uploading is available to educators and admins. Ask an admin to upgrade
           your role, or keep learning to earn points.
         </p>
@@ -100,8 +100,8 @@ export default function UploadPage() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold text-upm mb-1">Upload content</h1>
-      <p className="text-sm text-gray-500 mb-6">Approved uploads earn you points.</p>
+      <h1 className="text-3xl font-black tracking-tight mb-1">Upload <span className="text-upm-gold">content</span></h1>
+      <p className="text-sm text-upm-muted mb-6">Approved uploads earn you points.</p>
       <form onSubmit={onSubmit} className="space-y-4">
         <div className="flex gap-4">
           <label className="flex items-center gap-2">
@@ -115,20 +115,20 @@ export default function UploadPage() {
         </div>
 
         <input required placeholder="Title" value={title}
-          onChange={(e) => setTitle(e.target.value)} className="w-full rounded-lg border px-3 py-2" />
+          onChange={(e) => setTitle(e.target.value)} className="input" />
         <input placeholder="Short description" value={description}
-          onChange={(e) => setDescription(e.target.value)} className="w-full rounded-lg border px-3 py-2" />
+          onChange={(e) => setDescription(e.target.value)} className="input" />
         <input placeholder="Category (e.g. Physics, Astronomy)" value={category}
-          onChange={(e) => setCategory(e.target.value)} className="w-full rounded-lg border px-3 py-2" />
+          onChange={(e) => setCategory(e.target.value)} className="input" />
 
         {type === "article" ? (
           <textarea required placeholder="Write your lesson in markdown…" value={body}
             onChange={(e) => setBody(e.target.value)} rows={10}
-            className="w-full rounded-lg border px-3 py-2 font-mono text-sm" />
+            className="input font-mono text-sm" />
         ) : (
           <input type="file" accept="application/pdf"
             onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-            className="w-full rounded-lg border px-3 py-2" />
+            className="input" />
         )}
 
         <label className="flex items-center gap-2 text-sm">
@@ -137,24 +137,24 @@ export default function UploadPage() {
         </label>
 
         {addQuiz && (
-          <div className="rounded-lg border p-4 space-y-3 bg-gray-50">
+          <div className="card p-4 space-y-3">
             <input placeholder="Question" value={question}
-              onChange={(e) => setQuestion(e.target.value)} className="w-full rounded-lg border px-3 py-2" />
+              onChange={(e) => setQuestion(e.target.value)} className="input" />
             {options.map((o, i) => (
               <div key={i} className="flex items-center gap-2">
                 <input type="radio" name="correct" checked={correct === i} onChange={() => setCorrect(i)} />
                 <input placeholder={`Option ${i + 1}`} value={o}
                   onChange={(e) => { const n = [...options]; n[i] = e.target.value; setOptions(n); }}
-                  className="flex-1 rounded-lg border px-3 py-2" />
+                  className="input flex-1" />
               </div>
             ))}
-            <p className="text-xs text-gray-500">Select the radio next to the correct answer.</p>
+            <p className="text-xs text-upm-muted">Select the radio next to the correct answer.</p>
           </div>
         )}
 
-        {error && <p className="text-sm text-red-600">{error}</p>}
+        {error && <p className="text-sm text-red-400">{error}</p>}
         <button disabled={loading}
-          className="rounded-lg bg-upm px-6 py-2 text-white font-medium hover:bg-upm-dark disabled:opacity-50">
+          className="btn-primary">
           {loading ? "Publishing…" : "Publish"}
         </button>
       </form>
