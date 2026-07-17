@@ -2,42 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
+:root { color-scheme: dark; }
 
 body {
-  @apply bg-gray-50 text-gray-900 antialiased;
+  @apply bg-upm-deep text-upm-text antialiased;
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-image: radial-gradient(at 100% 0%, rgba(11,107,58,0.06) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(245,179,1,0.05) 0px, transparent 50%);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(11, 107, 58, 0.35), transparent),
+    radial-gradient(ellipse 40% 30% at 90% 20%, rgba(245, 179, 1, 0.07), transparent);
   background-attachment: fixed;
 }
 
+::selection { background: rgba(245, 179, 1, 0.4); }
+
 .card {
-  @apply rounded-2xl border border-gray-200/80 bg-white/90 backdrop-blur shadow-sm;
+  @apply rounded-2xl border border-upm-border bg-upm-surface/90 backdrop-blur shadow-xl shadow-black/40;
 }
 .card-hover {
-  @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:border-upm/40;
+  @apply transition-all duration-200 hover:-translate-y-0.5 hover:border-upm-gold/60 hover:shadow-upm-gold/10;
 }
 .btn-primary {
-  @apply rounded-xl bg-upm px-6 py-2.5 text-white font-semibold shadow-sm
-    transition-all hover:bg-upm-dark hover:shadow-md active:scale-[0.98] disabled:opacity-50;
+  @apply rounded-xl bg-upm-gold px-6 py-2.5 font-bold text-black shadow-lg shadow-upm-gold/20
+    transition-all hover:brightness-110 hover:shadow-upm-gold/40 active:scale-[0.98] disabled:opacity-50;
 }
 .btn-outline {
-  @apply rounded-xl border-2 border-upm px-6 py-2.5 text-upm font-semibold
-    transition-all hover:bg-upm-light active:scale-[0.98];
+  @apply rounded-xl border-2 border-upm-gold/80 px-6 py-2.5 font-bold text-upm-gold
+    transition-all hover:bg-upm-gold/10 active:scale-[0.98];
 }
 .input {
-  @apply w-full rounded-xl border border-gray-300 px-4 py-2.5 bg-white
-    transition-colors focus:border-upm focus:ring-2 focus:ring-upm/20 focus:outline-none;
+  @apply w-full rounded-xl border border-upm-border bg-black/30 px-4 py-2.5 text-upm-text
+    placeholder:text-upm-muted/60 transition-colors focus:border-upm-gold focus:ring-2
+    focus:ring-upm-gold/30 focus:outline-none;
 }
 .chip {
-  @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold;
 }
 
-.prose-content h1 { @apply text-2xl font-bold mt-4 mb-2; }
-.prose-content h2 { @apply text-xl font-semibold mt-3 mb-2; }
-.prose-content p  { @apply my-2 leading-relaxed; }
+.prose-content h1 { @apply text-2xl font-bold mt-4 mb-2 text-upm-text; }
+.prose-content h2 { @apply text-xl font-semibold mt-3 mb-2 text-upm-text; }
+.prose-content p  { @apply my-2 leading-relaxed text-upm-text/90; }
 .prose-content ul { @apply list-disc pl-6 my-2; }
 .prose-content ol { @apply list-decimal pl-6 my-2; }
-.prose-content code { @apply bg-gray-100 px-1 rounded text-sm; }
-.prose-content strong { @apply font-semibold; }
+.prose-content code { @apply bg-black/40 text-upm-gold px-1 rounded text-sm; }
+.prose-content strong { @apply font-semibold text-upm-gold; }
