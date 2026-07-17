@@ -35,8 +35,8 @@ export default async function BrowsePage({
 
   return (
     <div>
-      <h1 className="text-3xl font-extrabold tracking-tight">Browse content</h1>
-      <p className="mt-1 text-sm text-gray-500">Complete anything below to earn points.</p>
+      <h1 className="text-3xl font-black tracking-tight">Browse content</h1>
+      <p className="mt-1 text-sm text-upm-muted">Complete anything below to earn points.</p>
 
       <form className="mt-6 flex flex-wrap gap-2" method="get">
         <input name="q" defaultValue={sp.q ?? ""} placeholder="Search title…"
@@ -54,22 +54,27 @@ export default async function BrowsePage({
       </form>
 
       {items.length === 0 ? (
-        <div className="card mt-8 p-10 text-center text-gray-500">
-          No content yet. Be the first to <Link href="/upload" className="text-upm font-semibold hover:underline">upload</Link>.
+        <div className="card mt-8 p-10 text-center text-upm-muted">
+          No content yet. Be the first to{" "}
+          <Link href="/upload" className="text-upm-gold font-bold hover:underline">upload</Link>.
         </div>
       ) : (
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {items.map((c) => (
             <Link key={c.id} href={`/content/${c.id}`} className="card card-hover block p-5">
               <div className="flex items-center justify-between">
-                <span className={`chip ${c.type === "pdf" ? "bg-red-50 text-red-600" : "bg-upm-light text-upm"}`}>
+                <span className={`chip ${
+                  c.type === "pdf"
+                    ? "border border-upm-red/50 bg-upm-red/10 text-red-300"
+                    : "border border-upm-gold/40 bg-upm-gold/10 text-upm-gold"
+                }`}>
                   {c.type === "pdf" ? "📄 PDF" : "📝 Article"}
                 </span>
-                {c.category && <span className="text-xs font-medium text-gray-400">{c.category}</span>}
+                {c.category && <span className="text-xs font-semibold text-upm-muted">{c.category}</span>}
               </div>
-              <h2 className="mt-3 font-bold leading-snug">{c.title}</h2>
-              <p className="mt-1.5 text-sm text-gray-500 line-clamp-2 leading-relaxed">{c.description}</p>
-              <div className="mt-3 text-xs font-semibold text-upm">Complete for +10 pts →</div>
+              <h2 className="mt-3 font-bold leading-snug text-upm-text">{c.title}</h2>
+              <p className="mt-1.5 text-sm text-upm-muted line-clamp-2 leading-relaxed">{c.description}</p>
+              <div className="mt-3 text-xs font-bold text-upm-gold">Complete for +10 pts →</div>
             </Link>
           ))}
         </div>
