@@ -35,10 +35,10 @@ export default async function DashboardPage() {
       <LoginStreak />
       <div className="flex items-end justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight">
-            Welcome back, <span className="text-upm">{profile.full_name ?? "learner"}</span>
+          <h1 className="text-3xl font-black tracking-tight">
+            Welcome back, <span className="text-upm-gold">{profile.full_name ?? "learner"}</span>
           </h1>
-          <span className="chip mt-2 bg-gray-100 text-gray-600 capitalize">{profile.role}</span>
+          <span className="chip mt-2 border border-upm-border bg-upm-light text-upm-muted capitalize">{profile.role}</span>
         </div>
         <div className="flex gap-2">
           <Link href="/content" className="btn-primary">Browse content</Link>
@@ -49,20 +49,20 @@ export default async function DashboardPage() {
       </div>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
-        <div className="card p-6 bg-gradient-to-br from-upm to-upm-dark text-white border-0">
-          <div className="text-sm text-emerald-100">Total points</div>
-          <div className="mt-1 text-4xl font-extrabold">{profile.points.toLocaleString()}</div>
-          <div className="mt-2 text-xs text-emerald-100/80">→ convertible to PTR in Phase 2</div>
+        <div className="card p-6 border-upm-gold/50 bg-gradient-to-br from-upm-gold/15 to-transparent">
+          <div className="text-sm font-semibold text-upm-gold">Total points</div>
+          <div className="mt-1 text-4xl font-black text-upm-gold">{profile.points.toLocaleString()}</div>
+          <div className="mt-2 text-xs text-upm-muted">→ convertible to PTR in Phase 2</div>
         </div>
         <div className="card p-6">
-          <div className="text-sm text-gray-500">Day streak</div>
-          <div className="mt-1 text-4xl font-extrabold">{profile.streak} <span className="text-2xl">🔥</span></div>
-          <div className="mt-2 text-xs text-gray-400">come back tomorrow to keep it alive</div>
+          <div className="text-sm font-semibold text-upm-muted">Day streak</div>
+          <div className="mt-1 text-4xl font-black">{profile.streak} <span className="text-2xl">🔥</span></div>
+          <div className="mt-2 text-xs text-upm-muted">come back tomorrow to keep it alive</div>
         </div>
         <div className="card p-6">
-          <div className="text-sm text-gray-500">Leaderboard rank</div>
-          <div className="mt-1 text-4xl font-extrabold text-upm">#{(rank ?? 0) + 1}</div>
-          <Link href="/leaderboard" className="mt-2 inline-block text-xs font-medium text-upm hover:underline">
+          <div className="text-sm font-semibold text-upm-muted">Leaderboard rank</div>
+          <div className="mt-1 text-4xl font-black text-upm-text">#{(rank ?? 0) + 1}</div>
+          <Link href="/leaderboard" className="mt-2 inline-block text-xs font-bold text-upm-gold hover:underline">
             view leaderboard →
           </Link>
         </div>
@@ -70,22 +70,22 @@ export default async function DashboardPage() {
 
       <h2 className="mt-10 text-lg font-bold">Recent activity</h2>
       {txs.length === 0 ? (
-        <div className="card mt-3 p-8 text-center text-gray-500">
+        <div className="card mt-3 p-8 text-center text-upm-muted">
           No points yet — complete some content to get started.
         </div>
       ) : (
-        <ul className="card mt-3 divide-y divide-gray-100 overflow-hidden">
+        <ul className="card mt-3 divide-y divide-upm-border/50 overflow-hidden">
           {txs.map((t) => (
-            <li key={t.id} className="flex items-center justify-between px-5 py-3.5 hover:bg-gray-50/70 transition-colors">
-              <span className="flex items-center gap-3 text-sm font-medium">
+            <li key={t.id} className="flex items-center justify-between px-5 py-3.5 hover:bg-upm-light/50 transition-colors">
+              <span className="flex items-center gap-3 text-sm font-semibold">
                 <span className="text-lg">{REASON_ICONS[t.reason] ?? "⭐"}</span>
                 {REASON_LABELS[t.reason] ?? t.reason}
               </span>
               <span className="flex items-center gap-4">
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-upm-muted/70">
                   {new Date(t.created_at).toLocaleDateString()}
                 </span>
-                <span className="chip bg-green-50 text-green-700">+{t.amount}</span>
+                <span className="chip border border-upm-gold/40 bg-upm-gold/10 text-upm-gold">+{t.amount}</span>
               </span>
             </li>
           ))}
