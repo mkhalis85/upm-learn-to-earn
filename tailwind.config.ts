@@ -5,17 +5,17 @@ const config: Config = {
     extend: {
       colors: {
         upm: {
-          DEFAULT: "#0b6b3a",   // UPM green
+          DEFAULT: "#0b6b3a",    // UPM green (secondary, from crest)
           dark: "#07361f",
-          deep: "#050f0a",      // page background (near-black green)
-          surface: "#0c2015",   // card surface
-          border: "#1d4030",    // card border
-          light: "#12301f",     // hover surface
-          gold: "#f5b301",      // UPM gold — primary accent
-          goldDark: "#c79102",
-          red: "#e11d48",       // UPM red — sparing highlights
-          text: "#f0f6f1",
-          muted: "#9fbfae",
+          deep: "#f3f4f8",       // page background (corporate light grey)
+          surface: "#ffffff",    // card surface
+          border: "#e4e6ee",     // card border
+          light: "#f9edf1",      // crimson-tinted hover surface
+          gold: "#ae0435",       // PRIMARY accent — UPM crimson (from official template)
+          goldDark: "#7e0c2d",   // deep maroon
+          red: "#ae0435",
+          text: "#171923",       // near-black text
+          muted: "#5f6473",      // secondary text
         },
       },
     },
