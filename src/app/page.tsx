@@ -29,7 +29,7 @@ export default async function Home() {
         </span>
         <h1 className="text-5xl sm:text-6xl font-black tracking-tight leading-tight">
           Learn. Contribute.{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-upm-gold via-yellow-300 to-upm-gold">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-upm-goldDark via-upm-gold to-upm-goldDark">
             Earn.
           </span>
         </h1>
@@ -56,19 +56,19 @@ export default async function Home() {
         ))}
       </div>
 
-      <div className="mt-16 card overflow-hidden border-upm-gold/30">
-        <div className="bg-gradient-to-br from-upm-dark via-upm to-upm-dark p-8 text-center">
+      <div className="mt-16 card overflow-hidden border-upm-gold/40">
+        <div className="bg-gradient-to-br from-upm-goldDark via-upm-gold to-upm-goldDark p-8 text-center">
           <h2 className="text-2xl font-black text-white">How points become tokens</h2>
-          <p className="mt-3 max-w-xl mx-auto text-emerald-100/90 leading-relaxed">
+          <p className="mt-3 max-w-xl mx-auto text-white/90 leading-relaxed">
             Points live on a server-audited ledger. In Phase 2 they convert to{" "}
             <span className="font-bold text-upm-gold">PTR</span> — a university-branded
             token you hold in your own wallet.
           </p>
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
             {RATES.map((r) => (
-              <div key={r.action} className="rounded-xl bg-black/30 border border-white/10 px-3 py-4">
-                <div className="text-2xl font-black text-upm-gold">+{r.pts}</div>
-                <div className="mt-1 text-xs font-medium text-emerald-100/80">{r.action}</div>
+              <div key={r.action} className="rounded-xl bg-white/10 border border-white/25 px-3 py-4">
+                <div className="text-2xl font-black text-white">+{r.pts}</div>
+                <div className="mt-1 text-xs font-medium text-white/85">{r.action}</div>
               </div>
             ))}
           </div>

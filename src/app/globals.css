@@ -2,37 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
+:root { color-scheme: light; }
 
 body {
   @apply bg-upm-deep text-upm-text antialiased;
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-image:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(11, 107, 58, 0.35), transparent),
-    radial-gradient(ellipse 40% 30% at 90% 20%, rgba(245, 179, 1, 0.07), transparent);
+  /* dotted world-map texture from the official UPM template */
+  background-image: radial-gradient(circle, #d9dce8 1px, transparent 1.5px);
+  background-size: 20px 20px;
   background-attachment: fixed;
 }
 
-::selection { background: rgba(245, 179, 1, 0.4); }
+::selection { background: rgba(174, 4, 53, 0.2); }
 
 .card {
-  @apply rounded-2xl border border-upm-border bg-upm-surface/90 backdrop-blur shadow-xl shadow-black/40;
+  @apply rounded-2xl border border-upm-border bg-upm-surface shadow-sm;
 }
 .card-hover {
-  @apply transition-all duration-200 hover:-translate-y-0.5 hover:border-upm-gold/60 hover:shadow-upm-gold/10;
+  @apply transition-all duration-200 hover:-translate-y-0.5 hover:border-upm-gold/50 hover:shadow-lg hover:shadow-upm-gold/10;
 }
 .btn-primary {
-  @apply rounded-xl bg-upm-gold px-6 py-2.5 font-bold text-black shadow-lg shadow-upm-gold/20
-    transition-all hover:brightness-110 hover:shadow-upm-gold/40 active:scale-[0.98] disabled:opacity-50;
+  @apply rounded-xl bg-upm-gold px-6 py-2.5 font-bold text-white shadow-md shadow-upm-gold/25
+    transition-all hover:bg-upm-goldDark hover:shadow-upm-gold/40 active:scale-[0.98] disabled:opacity-50;
 }
 .btn-outline {
-  @apply rounded-xl border-2 border-upm-gold/80 px-6 py-2.5 font-bold text-upm-gold
-    transition-all hover:bg-upm-gold/10 active:scale-[0.98];
+  @apply rounded-xl border-2 border-upm-gold px-6 py-2.5 font-bold text-upm-gold
+    transition-all hover:bg-upm-light active:scale-[0.98];
 }
 .input {
-  @apply w-full rounded-xl border border-upm-border bg-black/30 px-4 py-2.5 text-upm-text
+  @apply w-full rounded-xl border border-upm-border bg-white px-4 py-2.5 text-upm-text
     placeholder:text-upm-muted/60 transition-colors focus:border-upm-gold focus:ring-2
-    focus:ring-upm-gold/30 focus:outline-none;
+    focus:ring-upm-gold/20 focus:outline-none;
 }
 .chip {
   @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold;
@@ -43,5 +43,5 @@ body {
 .prose-content p  { @apply my-2 leading-relaxed text-upm-text/90; }
 .prose-content ul { @apply list-disc pl-6 my-2; }
 .prose-content ol { @apply list-decimal pl-6 my-2; }
-.prose-content code { @apply bg-black/40 text-upm-gold px-1 rounded text-sm; }
-.prose-content strong { @apply font-semibold text-upm-gold; }
+.prose-content code { @apply bg-upm-light text-upm-gold px-1 rounded text-sm; }
+.prose-content strong { @apply font-semibold text-upm-goldDark; }

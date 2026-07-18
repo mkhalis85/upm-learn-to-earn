@@ -13,9 +13,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Navbar />
         <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
-        <footer className="mt-16 border-t border-upm-border/60 bg-black/20">
-          <div className="mx-auto max-w-5xl px-4 py-6 text-center text-xs text-upm-muted">
-            Putra Learn-to-Earn · <span className="text-upm-gold font-semibold">Universiti Putra Malaysia</span>
+        <footer className="mt-16 bg-gradient-to-r from-upm-goldDark to-upm-gold text-white">
+          <div className="mx-auto max-w-5xl px-4 py-4 flex flex-wrap items-center justify-between gap-2 text-sm">
+            <div>
+              <span className="font-black">With Knowledge We Serve</span>
+              <span className="ml-3 text-white/80 text-xs">Agriculture · Innovation · Life</span>
+            </div>
+            <div className="text-xs font-semibold text-white/90">
+              Putra Learn-to-Earn · Universiti Putra Malaysia
+            </div>
           </div>
         </footer>
       </body>
