@@ -34,7 +34,7 @@ function LoginForm() {
             onChange={(e) => setEmail(e.target.value)} className="input" />
           <input type="password" required placeholder="Password" value={password}
             onChange={(e) => setPassword(e.target.value)} className="input" />
-          {error && <p className="text-sm text-red-400">{error}</p>}
+          {error && <p className="text-sm text-red-600">{error}</p>}
           <button disabled={loading} className="btn-primary w-full">
             {loading ? "Signing in…" : "Log in"}
           </button>
