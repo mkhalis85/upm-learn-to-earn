@@ -152,7 +152,7 @@ export default function UploadPage() {
           </div>
         )}
 
-        {error && <p className="text-sm text-red-400">{error}</p>}
+        {error && <p className="text-sm text-red-600">{error}</p>}
         <button disabled={loading}
           className="btn-primary">
           {loading ? "Publishing…" : "Publish"}
