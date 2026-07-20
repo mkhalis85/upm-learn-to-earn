@@ -65,7 +65,7 @@ export default async function BrowsePage({
               <div className="flex items-center justify-between">
                 <span className={`chip ${
                   c.type === "pdf"
-                    ? "border border-upm-red/50 bg-upm-red/10 text-red-300"
+                    ? "border border-upm-goldDark/40 bg-upm-light text-upm-goldDark"
                     : "border border-upm-gold/40 bg-upm-gold/10 text-upm-gold"
                 }`}>
                   {c.type === "pdf" ? "📄 PDF" : "📝 Article"}
