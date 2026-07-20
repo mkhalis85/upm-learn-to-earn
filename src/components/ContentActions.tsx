@@ -81,7 +81,7 @@ export default function ContentActions({
                     : "border-upm-border hover:border-upm-gold/50 text-upm-muted hover:text-upm-text"
                 }`}>
                 <input type="radio" name="quiz" checked={choice === i} onChange={() => setChoice(i)}
-                  className="accent-[#f5b301]" />
+                  className="accent-[#ae0435]" />
                 {opt}
               </label>
             ))}
@@ -90,7 +90,7 @@ export default function ContentActions({
             Submit answer
           </button>
           {result && (
-            <p className={`mt-4 font-bold ${result === "pass" ? "text-upm-gold" : "text-red-400"}`}>
+            <p className={`mt-4 font-bold ${result === "pass" ? "text-upm-gold" : "text-red-600"}`}>
               {result === "pass" ? "✓ Correct" : "✗ Incorrect"}
             </p>
           )}
