@@ -44,7 +44,7 @@ export default async function LeaderboardPage() {
 
       <div className="card mt-8 overflow-hidden">
         <table className="w-full text-left">
-          <thead className="bg-black/30 text-xs uppercase tracking-wider text-upm-muted">
+          <thead className="bg-upm-deep text-xs uppercase tracking-wider text-upm-muted">
             <tr>
               <th className="px-5 py-3 w-16">#</th>
               <th className="px-5 py-3">Name</th>
@@ -62,7 +62,7 @@ export default async function LeaderboardPage() {
                 <td className="px-5 py-3.5 font-bold text-upm-muted">{i + 1}</td>
                 <td className="px-5 py-3.5 font-semibold">
                   {r.full_name ?? "—"}
-                  {r.id === user?.id && <span className="chip ml-2 bg-upm-gold text-black">you</span>}
+                  {r.id === user?.id && <span className="chip ml-2 bg-upm-gold text-white">you</span>}
                 </td>
                 <td className="px-5 py-3.5 capitalize text-sm text-upm-muted">{r.role}</td>
                 <td className="px-5 py-3.5 text-right text-sm">{r.streak} 🔥</td>
