@@ -60,7 +60,7 @@ export default function SignupPage() {
               <option value="educator">Educator (also upload content)</option>
             </select>
           </div>
-          {error && <p className="text-sm text-red-400">{error}</p>}
+          {error && <p className="text-sm text-red-600">{error}</p>}
           {message && <p className="text-sm text-upm-gold">{message}</p>}
           <button disabled={loading} className="btn-primary w-full">
             {loading ? "Creating…" : "Sign up"}
