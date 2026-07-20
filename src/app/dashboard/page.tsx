@@ -49,10 +49,10 @@ export default async function DashboardPage() {
       </div>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
-        <div className="card p-6 border-upm-gold/50 bg-gradient-to-br from-upm-gold/15 to-transparent">
-          <div className="text-sm font-semibold text-upm-gold">Total points</div>
-          <div className="mt-1 text-4xl font-black text-upm-gold">{profile.points.toLocaleString()}</div>
-          <div className="mt-2 text-xs text-upm-muted">→ convertible to PTR in Phase 2</div>
+        <div className="card p-6 border-0 bg-gradient-to-br from-upm-goldDark to-upm-gold text-white">
+          <div className="text-sm font-semibold text-white/90">Total points</div>
+          <div className="mt-1 text-4xl font-black text-white">{profile.points.toLocaleString()}</div>
+          <div className="mt-2 text-xs text-white/80">→ convertible to PTR in Phase 2</div>
         </div>
         <div className="card p-6">
           <div className="text-sm font-semibold text-upm-muted">Day streak</div>
@@ -76,7 +76,7 @@ export default async function DashboardPage() {
       ) : (
         <ul className="card mt-3 divide-y divide-upm-border/50 overflow-hidden">
           {txs.map((t) => (
-            <li key={t.id} className="flex items-center justify-between px-5 py-3.5 hover:bg-upm-light/50 transition-colors">
+            <li key={t.id} className="flex items-center justify-between px-5 py-3.5 hover:bg-upm-light transition-colors">
               <span className="flex items-center gap-3 text-sm font-semibold">
                 <span className="text-lg">{REASON_ICONS[t.reason] ?? "⭐"}</span>
                 {REASON_LABELS[t.reason] ?? t.reason}
