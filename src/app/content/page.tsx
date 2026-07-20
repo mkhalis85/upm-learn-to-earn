@@ -49,6 +49,8 @@ export default async function BrowsePage({
           <option value="">All types</option>
           <option value="article">Article</option>
           <option value="pdf">PDF</option>
+          <option value="quiz">Quiz</option>
+          <option value="questionnaire">Questionnaire</option>
         </select>
         <button className="btn-primary">Filter</button>
       </form>
@@ -74,7 +76,9 @@ export default async function BrowsePage({
               </div>
               <h2 className="mt-3 font-bold leading-snug text-upm-text">{c.title}</h2>
               <p className="mt-1.5 text-sm text-upm-muted line-clamp-2 leading-relaxed">{c.description}</p>
-              <div className="mt-3 text-xs font-bold text-upm-gold">Complete for +10 pts →</div>
+              <div className="mt-3 text-xs font-bold text-upm-gold">
+                {c.type === "quiz" ? "Pass for +25/question →" : c.type === "questionnaire" ? "Respond for +15 pts →" : "Complete for +10 pts →"}
+              </div>
             </Link>
           ))}
         </div>
