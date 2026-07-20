@@ -16,4 +16,5 @@ export const REASON_LABELS: Record<string, string> = {
   content_completed: "Content completed",
   quiz_passed: "Quiz passed",
   daily_login: "Daily login",
+  questionnaire_completed: "Questionnaire completed",
 };

@@ -1,5 +1,5 @@
 export type Role = "student" | "educator" | "admin";
-export type ContentType = "pdf" | "article";
+export type ContentType = "pdf" | "article" | "quiz" | "questionnaire";
 export type ContentStatus = "pending" | "approved" | "rejected";
 
 export interface Profile {
@@ -40,4 +40,13 @@ export interface PointTransaction {
   reason: string;
   ref_id: string | null;
   created_at: string;
+}
+
+export interface SurveyQuestion {
+  id: string;
+  content_id: string;
+  question: string;
+  kind: "text" | "choice";
+  options: string[] | null;
+  position: number;
 }
