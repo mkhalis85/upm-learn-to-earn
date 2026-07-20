@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase-server";
 import type { Content, Quiz, SurveyQuestion } from "@/lib/types";
@@ -58,7 +59,14 @@ export default async function ContentPage({
         <span className="uppercase font-black text-upm-gold tracking-wider">{TYPE_LABEL[c.type] ?? c.type}</span>
         {c.category && <span>· {c.category}</span>}
       </div>
-      <h1 className="text-3xl sm:text-4xl font-black mt-2 tracking-tight">{c.title}</h1>
+      <div className="flex items-start justify-between gap-3 flex-wrap">
+        <h1 className="text-3xl sm:text-4xl font-black mt-2 tracking-tight">{c.title}</h1>
+        {user && user.id === c.author_id && (quizzes.length > 0 || surveyQuestions.length > 0) && (
+          <Link href={`/content/${c.id}/results`} className="btn-outline mt-2 text-sm px-4 py-2">
+            📊 View results
+          </Link>
+        )}
+      </div>
       {c.description && <p className="mt-3 text-upm-muted leading-relaxed">{c.description}</p>}
 
       {(c.type === "article" || c.type === "pdf") && (
