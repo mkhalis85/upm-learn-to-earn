@@ -52,6 +52,7 @@ export default function Navbar() {
               {link("/content", "Browse")}
               {link("/upload", "Upload")}
               {link("/leaderboard", "Leaderboard")}
+              {link("/wallet", "Wallet")}
               {link("/dashboard", "Dashboard")}
               <button
                 onClick={signOut}
