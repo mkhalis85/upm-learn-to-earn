@@ -52,7 +52,9 @@ export default async function DashboardPage() {
         <div className="card p-6 border-0 bg-gradient-to-br from-upm-goldDark to-upm-gold text-white">
           <div className="text-sm font-semibold text-white/90">Total points</div>
           <div className="mt-1 text-4xl font-black text-white">{profile.points.toLocaleString()}</div>
-          <div className="mt-2 text-xs text-white/80">→ convertible to PTR in Phase 2</div>
+          <Link href="/wallet" className="mt-2 inline-block text-xs font-bold text-white underline underline-offset-2 hover:text-white/80">
+            Convert to PTR →
+          </Link>
         </div>
         <div className="card p-6">
           <div className="text-sm font-semibold text-upm-muted">Day streak</div>
