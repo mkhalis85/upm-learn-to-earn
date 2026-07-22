@@ -17,4 +17,5 @@ export const REASON_LABELS: Record<string, string> = {
   quiz_passed: "Quiz passed",
   daily_login: "Daily login",
   questionnaire_completed: "Questionnaire completed",
+  ptr_conversion: "Converted to PTR",
 };

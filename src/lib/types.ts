@@ -9,6 +9,18 @@ export interface Profile {
   points: number;
   streak: number;
   last_login: string | null;
+  wallet_address: string | null;
+  created_at: string;
+}
+
+export interface Conversion {
+  id: string;
+  user_id: string;
+  points_spent: number;
+  ptr_amount: number;
+  wallet_address: string;
+  status: "pending" | "minted" | "rejected";
+  tx_hash: string | null;
   created_at: string;
 }
 
